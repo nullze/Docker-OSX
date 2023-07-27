@@ -605,6 +605,16 @@ Finally, there are 3 ways to get video output:
 To use WSLg's built-in X-11 server, change these two lines in the docker run command to point Docker-OSX to WSLg.
 
 ```
+docker run -it \
+    --device /dev/kvm \
+    -p 50922:10022 \
+    -e "DISPLAY=${DISPLAY:-:0}" \
+    -v /mnt/wslg/.X11-unix:/tmp/.X11-unix \
+    sickcodes/docker-osx:latest
+```
+
+
+```
 -e "DISPLAY=${DISPLAY:-:0.0}" \
 -v /mnt/wslg/.X11-unix:/tmp/.X11-unix \
 ```
