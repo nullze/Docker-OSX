@@ -1,5 +1,12 @@
 What's working on Windows:
 
+Open powershell (no admin) then run:
+
+```
+wsl
+```
+Then run:
+
 ```
 docker run -it --device /dev/kvm -p 50922:10022 -v /mnt/wslg/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0}" -e GENERATE_UNIQUE=true sickcodes/docker-osx:auto
 ```
